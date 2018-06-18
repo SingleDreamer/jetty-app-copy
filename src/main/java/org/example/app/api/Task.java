@@ -1,7 +1,8 @@
 package org.example.app.api;
 
 public class Task {
-	static private int id_counter = 0; 
+	static public int id_counter = 1;
+	// what way makes most sense to have id_counter????
 	// does it make more sense to have "GET message" in the TaskResource vs Task class???
     private String todo;
     private int id; 
@@ -11,8 +12,12 @@ public class Task {
 
     public Task (String taskArg) {
         this.todo = getTask(taskArg);
-        this.id = id_counter; 
-        id_counter++; 
+        //this.id = id_counter; 
+        //id_counter++; 
+    } 
+    public Task (int idArg, String taskArg) {
+        this.todo = getTask(taskArg);
+        this.id = idArg; 
     } 
 
     public String getTodo() {
