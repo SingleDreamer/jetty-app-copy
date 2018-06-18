@@ -19,7 +19,11 @@ public interface MyDAO {
 	@SqlQuery("SELECT LAST_INSERT_ID()")
 	int getLatestId(); 
 	
-	@SqlUpdate("CREATE TABLE Tasks(id INT PRIMARY KEY AUTO_INCREMENT, todo TEXT) ENGINE=InnoDB")
+//	@SqlUpdate("DROP TABLE IF EXISTS Tasks")
+//	void deleteTaskTable(); 
+	
+	@SqlUpdate("CREATE TABLE IF NOT EXISTS"
+			+ "Tasks(id INT PRIMARY KEY AUTO_INCREMENT, todo TEXT) ENGINE=InnoDB")
 	//@SqlUpdate("CREATE TABLE Tasks(id INT PRIMARY KEY, todo TEXT) ENGINE=InnoDB")
 	  void createTaskTable();
 

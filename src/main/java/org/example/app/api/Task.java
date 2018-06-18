@@ -24,9 +24,9 @@ public class Task {
         return todo;
     }
 
-    public void setTodo(String taskArg) {
-        this.todo = taskArg;
-    }
+//    public void setTodo(String taskArg) {
+//        this.todo = taskArg;
+//    }
 
     private String getTask(String task) {
         //return "You just did a GET for the task: " + task;
@@ -37,8 +37,8 @@ public class Task {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
 
 }

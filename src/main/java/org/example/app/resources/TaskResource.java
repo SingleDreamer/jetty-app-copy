@@ -22,10 +22,13 @@ public class TaskResource {
 	
     @GET
     @Path("/{param}")
-    //@Produces(MediaType.APPLICATION_JSON)
-    @Produces({MediaType.TEXT_PLAIN})
-    public String taskGet(@PathParam("param") int id) {
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces({MediaType.TEXT_PLAIN})
+    /*public String taskGet(@PathParam("param") int id) {
         return dao.findById(id);
+    }*/
+    public Task taskGet(@PathParam("param") int id) {
+        return new Task(id, dao.findById(id));
     }
     
     @PUT
