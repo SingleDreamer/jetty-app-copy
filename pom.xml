@@ -12,6 +12,8 @@
         <jersey.version>2.25.1</jersey.version>
         <sl4j.version>1.7.25</sl4j.version>
         <junit.version>3.8.1</junit.version>
+        <jdbi.version>2.73</jdbi.version>
+        <mysql.version><!-- 5.1.39 -->8.0.11</mysql.version>
     </properties>
     <dependencies>
         <!-- *** JUNIT STUFF *** -->
@@ -74,13 +76,13 @@
         <dependency>
             <groupId>org.jdbi</groupId>
             <artifactId>jdbi</artifactId>
-            <version>2.73</version>
+            <version>${jdbi.version}</version>
         </dependency>
         
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version><!-- 5.1.39 -->8.0.11</version>
+            <version>${mysql.version}</version>
         </dependency>
 	</dependencies>	
     <build>
