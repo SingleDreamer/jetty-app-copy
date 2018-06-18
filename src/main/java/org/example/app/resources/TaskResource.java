@@ -24,9 +24,6 @@ public class TaskResource {
     @Path("/{param}")
     //@Produces(MediaType.APPLICATION_JSON)
     @Produces({MediaType.TEXT_PLAIN})
-    /*public Task taskGet(@PathParam("param") int id) {
-        return taskA;
-    }*/
     public String taskGet(@PathParam("param") int id) {
         return dao.findById(id);
     }
@@ -36,7 +33,6 @@ public class TaskResource {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.TEXT_PLAIN})
     public String taskPut(@PathParam("param") int id, Task task) {
-    	//taskA.setId(id);
     	dao.update(id, task.getTodo());
     	return task.getTodo();
     }
@@ -52,24 +48,22 @@ public class TaskResource {
     @GET 
     @Produces(MediaType.TEXT_PLAIN)
     public String taskGetAll() {
-//    	return "get all tasks"; 
     	Iterator<Task> i = dao.getAll(); 
     	String s = "";
     	Task i_next; 
     	while (i.hasNext()) {
     		i_next = i.next(); 
     		System.out.println(i_next.getId() + " " + i_next.getTodo());
-    		//s = s + i_next; 
+    		s = s + i_next.getId() + " " + i_next.getTodo();
     	}
-    	return "get all";
+    	return s;
     }
 
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     public String taskPostJson(Task task) {
-    	//task.setId(id_counter); 
-    	dao.insert(Task.id_counter, task.getTodo());
-    	Task.id_counter = Task.id_counter + 1; 
+//    	dao.insert(Task.id_counter, task.getTodo());
+    	dao.insert(task.getTodo());
         return "You just did a POST for the task: " + task.getTodo() + "\n";
     }
     
