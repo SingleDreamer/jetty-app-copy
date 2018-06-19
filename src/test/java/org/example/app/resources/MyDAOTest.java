@@ -12,23 +12,26 @@ public class MyDAOTest extends TestCase {
 	
 	public void setup() {
 		//dao.deleteTaskTable();
+		//System.out.println("setup");
 		dao.createTaskTable();
 	} 
 	
 	public void testDAO() {
-		/*int i = dao.getLatestId() + 1;
+		setup(); 
 		
 		dao.insert("testing MyDAO");
+		int i = dao.getLatestId(); 
 		String result = dao.findById(i);
-		assertTrue(result == "testing MyDAO"); 
+		System.out.println(""+i);
+		assertTrue(result.equals("testing MyDAO")); 
 		
 		dao.update(i, "testing update");
 		result = dao.findById(i);
-		assertTrue(result == "testing update"); 
+		assertTrue(result.equals("testing update")); 
 		
 		dao.delete(i); 
 		result = dao.findById(i); 
-		assertTrue(result == ""); 
+		assertTrue(result == null);
 		// need to test getAll??*/
 	}
 	

@@ -16,14 +16,16 @@ public interface MyDAO {
 	public static final String TASK_DB_USER = "myuser";
 	public static final String TASK_DB_PASS = "mysecretpassword";
 
-	@SqlQuery("SELECT LAST_INSERT_ID()")
+	// IS THIS NOT A GOOD PRACTICE ??????
+	//@SqlQuery("SELECT LAST_INSERT_ID()")
+	@SqlQuery("SELECT id FROM Tasks ORDER BY id DESC LIMIT 0, 1")
 	int getLatestId(); 
 	
 //	@SqlUpdate("DROP TABLE IF EXISTS Tasks")
 //	void deleteTaskTable(); 
 	
 	@SqlUpdate("CREATE TABLE IF NOT EXISTS"
-			+ "Tasks(id INT PRIMARY KEY AUTO_INCREMENT, todo TEXT) ENGINE=InnoDB")
+			+ " 	Tasks(id INT PRIMARY KEY AUTO_INCREMENT, todo TEXT) ENGINE=InnoDB")
 	//@SqlUpdate("CREATE TABLE Tasks(id INT PRIMARY KEY, todo TEXT) ENGINE=InnoDB")
 	  void createTaskTable();
 
