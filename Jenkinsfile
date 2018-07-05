@@ -1,10 +1,15 @@
 pipeline {
     agent any
+
 tools {
         //jdk 'jdk8'
         maven 'jetty-app-maven'
     }
     stages {
+
+    stage('SCM') {
+    git 'https://github.com/foo/bar.git'
+  }
         stage('Build') {
             steps {
                 echo 'Building..'
