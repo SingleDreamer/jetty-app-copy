@@ -27,7 +27,7 @@ tools {
         }
 	stage('Sonar') {
             steps {
-                sh "mvn sonar:sonar \
+                sh "mvn clean deploy sonar:sonar \
   -Dsonar.host.url=http://192.168.99.100:9000 \
   -Dsonar.login=a653d9ce3fce0829a8c5f23d3bfedd794f32afd6"
     }
