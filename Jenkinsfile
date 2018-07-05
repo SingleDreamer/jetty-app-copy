@@ -1,8 +1,8 @@
 pipeline {
     agent any
 tools {
-        jdk 'jdk8'
-        maven 'maven3'
+        //jdk 'jdk8'
+        maven 'jetty-app-maven'
     }
     stages {
         stage('Build') {
