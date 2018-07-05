@@ -7,9 +7,9 @@ tools {
     }
     stages {
 
-    stage('SCM') {
-    git 'https://github.com/SingleDreamer/jetty-app.git'
-  }
+    /*stage('SCM') {
+      git 'https://github.com/SingleDreamer/jetty-app.git'
+      }*/
         stage('Build') {
             steps {
                 echo 'Building..'
