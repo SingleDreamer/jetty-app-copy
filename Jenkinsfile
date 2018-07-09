@@ -1,10 +1,11 @@
 pipeline {
     agent any
 
-tools {
-        //jdk 'jdk8'
+    tools {
+        // jdk 'jdk8'
         maven 'jetty-app-maven'
     }
+
     stages {
         stage('Build') {
             steps {
@@ -21,12 +22,12 @@ tools {
                 echo 'Deploying....'
             }
         }
-	stage('Sonar') {
+	       stage('Sonar') {
             steps {
                 sh "mvn clean package sonar:sonar \
-  -Dsonar.host.url=http://192.168.99.100:9000 \
-  -Dsonar.login=a653d9ce3fce0829a8c5f23d3bfedd794f32afd6"
-    }
+                -Dsonar.host.url=http://192.168.99.100:9000 \
+                // -Dsonar.login=a653d9ce3fce0829a8c5f23d3bfedd794f32afd6"
+                }
         }
     }
 }
