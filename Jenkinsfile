@@ -10,11 +10,16 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh "mvn clean"
+                // sh "mvn package"
+              // sh "mvn validate"
+              //  sh "mvn compile"
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh "mvn test"
             }
         }
         stage('Deploy') {
@@ -37,16 +42,17 @@ pipeline {
 	       stage('Sonar') {
 
             steps {
-              sh "mvn clean package sonar:sonar \
+              //sh "mvn clean package sonar:sonar \
+              sh "mvn sonar:sonar \
                 -Dsonar.host.url=http://192.168.99.100:9000 \
                 -Dsonar.login=61a7ca03ba37b4921c9596147a17730c475fb9d4"
                 }
         }
 
-        stage('Run') {
+        /*stage('Run') {
           steps {
             sh 'mvn spring-boot:run'
           }
-        }
+        }*/
     }
 }
