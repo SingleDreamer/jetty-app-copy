@@ -39,7 +39,7 @@ pipeline {
         //    }
     //  }
 
-	       stage('Sonar') {
+	       /*stage('Sonar') {
 
             steps {
               //sh "mvn clean package sonar:sonar \
@@ -47,7 +47,7 @@ pipeline {
                 -Dsonar.host.url=http://192.168.99.100:9000 \
                 -Dsonar.login=61a7ca03ba37b4921c9596147a17730c475fb9d4"
                 }
-        }
+        }*/
 
         /*stage('Run') {
           steps {
