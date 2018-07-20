@@ -44,8 +44,8 @@ pipeline {
             steps {
               //sh "mvn clean package sonar:sonar \
               sh "mvn sonar:sonar \
-                -Dsonar.host.url=http://192.168.99.100:9000 \
-                -Dsonar.login=61a7ca03ba37b4921c9596147a17730c475fb9d4"
+                -Dsonar.host.url=http://192.168.99.100:9000"
+                //-Dsonar.login=61a7ca03ba37b4921c9596147a17730c475fb9d4"
                 }
         }*/
 
