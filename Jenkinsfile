@@ -7,9 +7,9 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Clean') {
             steps {
-                echo 'Building..'
+                echo 'Cleaning..'
                 sh "mvn clean"
                 // sh "mvn package"
               // sh "mvn validate"
@@ -48,7 +48,18 @@ pipeline {
                 //-Dsonar.login=61a7ca03ba37b4921c9596147a17730c475fb9d4"
                 }
         }
-
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh "docker build -t jetty-app-demo ."
+            }
+        }
+        stage('Update') {
+            steps {
+                echo 'Updating'
+                sh "docker push localhost:5000/jetty-app-demo"
+            }
+        }
         /*stage('Run') {
           steps {
             sh 'mvn spring-boot:run'
