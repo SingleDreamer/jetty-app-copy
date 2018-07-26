@@ -22,11 +22,11 @@ pipeline {
                 sh "mvn test"
             }
         }
-        stage('Deploy') {
+        /*stage('Deploy') {
             steps {
                 echo 'Deploying....'
             }
-        }
+        }*/
 
         //stage('Docker') {
         //    steps {
@@ -49,6 +49,13 @@ pipeline {
                 }
         }
 
+        stage('Package') {
+          steps {
+            echo 'Package'
+            sh 'mvn package'
+          }
+        }
+        
         stage('Build') {
             steps {
                 echo 'Building..'
