@@ -55,7 +55,7 @@ pipeline {
             sh 'mvn package'
           }
         }
-        
+
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -64,12 +64,19 @@ pipeline {
             }
         }
 
-        /*stage('Update') {
+        stage('Update') {
             steps {
                 echo 'Updating'
                 sh "docker push localhost:5000/jetty-app-demo"
             }
-        }*/
+        }
+
+        stage('Cleanup') {
+          steps {
+            echo 'Cleanup'
+            sh 'mvn clean'
+          }
+        }
 
         /*stage('Run') {
           steps {
