@@ -52,8 +52,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                //sh "docker build -t jetty-app-demo ."
-                app = docker.build("test")
+                sh "docker build -t jetty-app-demo ."
+                //app = docker.build("test")
             }
         }
 
