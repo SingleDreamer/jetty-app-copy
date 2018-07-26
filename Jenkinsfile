@@ -52,16 +52,17 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh "docker build -t jetty-app-demo ."
+                //sh "docker build -t jetty-app-demo ."
+                app = docker.build("test")
             }
         }
 
-        stage('Update') {
+        /*stage('Update') {
             steps {
                 echo 'Updating'
                 sh "docker push localhost:5000/jetty-app-demo"
             }
-        }
+        }*/
 
         /*stage('Run') {
           steps {
