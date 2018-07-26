@@ -67,6 +67,7 @@ pipeline {
         stage('Update') {
             steps {
                 echo 'Updating'
+                sh "docker tag jetty-app-demo localhost:5000/jetty-app-demo"
                 sh "docker push localhost:5000/jetty-app-demo"
             }
         }
