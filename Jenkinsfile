@@ -12,8 +12,8 @@ pipeline {
                 echo 'Cleaning..'
                 sh "mvn clean"
                 // sh "mvn package"
-              // sh "mvn validate"
-              //  sh "mvn compile"
+                // sh "mvn validate"
+                //  sh "mvn compile"
             }
         }
         stage('Test') {
@@ -22,11 +22,6 @@ pipeline {
                 sh "mvn test"
             }
         }
-        /*stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }*/
 
         //stage('Docker') {
         //    steps {
@@ -76,13 +71,22 @@ pipeline {
           steps {
             echo 'Cleanup'
             sh 'mvn clean'
+            sh 'docker image rm localhost:5000/jetty-app-demo'
+            sh 'docker image rm jetty-app-demo'
           }
         }
+
+        /*stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }*/
 
         /*stage('Run') {
           steps {
             sh 'mvn spring-boot:run'
           }
         }*/
+        
     }
 }
