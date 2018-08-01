@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 source config.sh
 
 docker run --name postgres \
@@ -30,7 +29,7 @@ docker run -d \
   gustavoapolinario/jenkins-docker
   #getintodevops/jenkins-withdocker:lts
 
-# docker exec -it -uroot jenkins-docker bash -c "cat var/jenkins_home/secrets/initialAdminPassword"
+
 # this allows docker to run inside the jenkins container
 docker exec -it -uroot $JENKINS_NAME bash -c "chmod 777 /var/run/docker.sock"
 
