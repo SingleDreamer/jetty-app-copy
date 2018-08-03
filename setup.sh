@@ -35,6 +35,7 @@ docker exec -it -uroot $JENKINS_NAME bash -c "chmod 777 /var/run/docker.sock"
 
 
 # gitlab
+    #-e GITLAB_ROOT_PASSWORD=*HnYnKkn4444 \
 docker run --detach \
     --hostname gitlab.example.com \
     --publish 443:443 --publish 30080:80 --publish 30022:22 \
@@ -43,8 +44,11 @@ docker run --detach \
     --volume /srv/gitlab/config:/etc/gitlab \
     --volume /srv/gitlab/logs:/var/log/gitlab \
     --volume /srv/gitlab/data:/var/opt/gitlab \
-    gitlab/gitlab-ce:latest
+    gitlab/gitlab-ce:9.1.0-ce.0
 
+python going_headless/get_jenkins_password.py
+
+GITLAB_PERSONAL_ACCESS_TOKEN="$ curl http://192.168.99.100:30080/api/v4/session --data 'login=root&password=*HnYnKkn4869' | jq '.private_token' curl http://192.168.99.100:30080/api/v4/session --data 'login=root&password=*HnYnKkn4869' | jq '.private_token'"
 
 # local docker registry
 docker run -d -p 5000:5000 --restart=always --name $REGISTRY_NAME registry:2
