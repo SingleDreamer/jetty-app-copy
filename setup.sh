@@ -18,7 +18,6 @@ docker run -d --name sonarqube \
                 -v sonarqube-temp:/opt/sonarqube/temp \
                 sonarqube:lts
 
-
 # jenkins
 # this has docker installed???
 # docker run -d --name jenkins -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
