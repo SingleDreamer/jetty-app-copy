@@ -58,7 +58,7 @@ public class TaskResource {
     	while (i.hasNext()) {
     		i_next = i.next();
     		System.out.println(i_next.getId() + " " + i_next.getTodo());
-    		s = s + i_next.getId() + " " + i_next.getTodo();
+    		s = s + i_next.getId() + " " + i_next.getTodo() + "\n";
     	}
     	return s;
     }
