@@ -32,7 +32,6 @@ docker run -d \
 # this allows docker to run inside the jenkins container (just in case? not sure why sometimes it needs this)
 docker exec -it -uroot $JENKINS_NAME bash -c "chmod 777 /var/run/docker.sock"
 
-
 # gitlab
     #-e GITLAB_ROOT_PASSWORD=*HnYnKkn4444 \
 docker run --detach \
