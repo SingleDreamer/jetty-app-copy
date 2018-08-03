@@ -55,6 +55,5 @@ docker run --detach \
 #python going_headless/add_credentials.py
 #python going_headless/configure.py
 
-
 # local docker registry
 docker run -d -p 5000:5000 --restart=always --name $REGISTRY_NAME registry:2
