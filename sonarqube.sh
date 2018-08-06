@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source config.sh
 
 docker run --name postgres \
             -e POSTGRES_PASSWORD=mysecretpassword \

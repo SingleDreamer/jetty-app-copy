@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-JENKINS_NAME="jenkins-docker"
+JENKINS_NAME="jenkins-docker-2"
 GITLAB_NAME="gitlab-test-root"
 REGISTRY_NAME="registry"
