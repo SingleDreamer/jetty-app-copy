@@ -8,11 +8,17 @@ docker run --detach \
     --publish 443:443 --publish 30080:80 --publish 30022:22 \
     --name $GITLAB_NAME \
     --restart always \
-    --volume /srv/gitlab/config:/etc/gitlab \
-    --volume /srv/gitlab/logs:/var/log/gitlab \
-    --volume /srv/gitlab/data:/var/opt/gitlab \
+    --volume gitlab-test-config:/etc/gitlab \
+    --volume gitlab-test-logs:/var/log/gitlab \
+    --volume gitlab-test-data:/var/opt/gitlab \
     gitlab/gitlab-ce:9.1.0-ce.0
+    #gitlab/gitlab-ce:latest
+    #--volume /srv/gitlab/config:/etc/gitlab \
+    #--volume /srv/gitlab/logs:/var/log/gitlab \
+    #--volume /srv/gitlab/data:/var/opt/gitlab \
+    #gitlab/gitlab-ce:latest
+    #gitlab/gitlab-ce:9.1.0-ce.0
 
-cd going_headless
+#cd going_headless
 
-python configure_gitlab.py
+#python configure_gitlab.py

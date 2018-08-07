@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 
 chrome_options = Options()
-#chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 chrome_options.binary_location = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
 
 driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver"),   chrome_options=chrome_options)
@@ -14,8 +14,10 @@ driver.get("http://192.168.99.100:30080") # gitlab
 
 time.sleep(180)
 #print(driver.page_source)
-while "create password" not in driver.page_source:
+while "create a password" not in driver.page_source:
     driver.get("http://192.168.99.100:30080")
+    time.sleep(30)
+    print("checking if gitlab is up")
     #pass
 
 pass_field = driver.find_element_by_id("user_password")
