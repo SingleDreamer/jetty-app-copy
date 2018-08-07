@@ -12,3 +12,7 @@ docker run --detach \
     --volume /srv/gitlab/logs:/var/log/gitlab \
     --volume /srv/gitlab/data:/var/opt/gitlab \
     gitlab/gitlab-ce:9.1.0-ce.0
+
+cd going_headless
+
+python configure_gitlab.py
