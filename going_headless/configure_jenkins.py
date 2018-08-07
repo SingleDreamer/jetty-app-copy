@@ -2,16 +2,10 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
-#from subprocess import call
-#import sys, os
-
-#import sys
-#import subprocess
-#from subprocess import Popen, PIPE
 
 
 chrome_options = Options()
-chrome_options.add_argument("--headless")
+#chrome_options.add_argument("--headless")
 chrome_options.binary_location = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
 
 driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver"),   chrome_options=chrome_options)
@@ -20,31 +14,33 @@ driver.get("http://192.168.99.100:8080") # jenkins_home
 while "Unlock Jenkins" not in driver.page_source:
     pass
 
-#if "Unlock Jenkins" in driver.page_source:
-    #print("unlocking jenkins\n")
-    #os.chdir("..")
-    #shellscript = subprocess.Popen(["get_jenkins_pswd.sh"], stdin=subprocess.PIPE)
-    #shellscript.stdin.write("yes\n")
-    #shellscript.stdin.close()
-    #returncode = shellscript.wait()   # blocks until shellscript is done
+f= open("initialAdminPassword.txt","r")
+fl =f.readlines()
+initialAdminPassword = ""
+for x in fl:
+    initialAdminPassword = x
+#print(initialAdminPassword)
 
-    #os.system("ls")
-    #os.system("cd .. && .\get_jenkins_pswd.sh")
-    #os.system("get_jenkins_pswd.sh")
-    #os.chdir("..")
-    #os.system("source config.sh")
-    #os.system('docker exec -it -uroot $JENKINS_NAME bash -c "cat var/jenkins_home/secrets/initialAdminPassword"')
+pass_field = driver.find_element_by_id("security-token")
+pass_field.clear()
+pass_field.send_keys(initialAdminPassword)
+#pass_field.send_keys(Keys.RETURN)
+#submit_button = driver.find_element_by_xpath("//input[@value='continue'][@type='submit']")
+#submit_button.click()
+driver.implicitly_wait(15)
 
-    #call(["get_jenkins_pswd.sh", shell=True])
+while "Customize Jenkins" not in driver.page_source:
+    pass
+#print("at plugin page")
+close_button = driver.find_element_by_class_name("close")
+close_button.click()
+print("close")
 
-    # session = subprocess.Popen(['test.sh'], stdout=PIPE, stderr=PIPE)
-    # stdout, stderr = session.communicate()
-    #
-    # if stderr:
-    #     raise Exception("Error "+str(stderr))
-
-    #subprocess.call('test.sh', shell=True)
-    #output = subprocess.check_output('test.sh')
-    #print(output)
+while "Start" not in driver.page_source:
+    pass
+#driver.implicitly_wait(15)
+start_button = driver.find_element_by_class_name("install-done")
+start_button.click()
+print("start")
 
 driver.close()

@@ -22,4 +22,4 @@ docker exec -it -uroot $JENKINS_NAME bash -c "chmod 777 /var/run/docker.sock"
 
 cd going_headless
 
-python configure_jenkins_2.py
+python configure_jenkins.py
