@@ -11,7 +11,7 @@ import static org.eclipse.jetty.servlet.ServletContextHandler.NO_SESSIONS;
 
 
 import org.skife.jdbi.v2.DBI;
-import org.skife.jdbi.v2.Handle; 
+import org.skife.jdbi.v2.Handle;
 import org.skife.jdbi.v2.Query;
 
 import java.util.List;
@@ -27,20 +27,20 @@ import java.sql.SQLException;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
 
-    	
+
     	/*System.out.println("-------- MySQL JDBI Connection Testing ------------");
-    	
+
     	//image ip: 172.17.0.2
     	//docker ip: 192.168.99.100
     	Handle handle = null;
 //        DBI dbi = new DBI("jdbc:mysql://localhost:3306/test",
-//                "root", "*HnYnKkn4869");
+//                "root", "GitPass1");
     	DBI dbi = new DBI("jdbc:mysql://192.168.99.100:3306/task",
                 "myuser", "mysecretpassword");
         String sql = "SELECT * FROM Cars";
@@ -53,7 +53,7 @@ public class App
             List<Map<String, Object>> l = q.list();
 
             for (Map<String, Object> m : l) {
-            
+
                 System.out.printf("%d ", m.get("Id"));
                 System.out.printf("%s ", m.get("Name"));
                 System.out.println(m.get("Price"));
@@ -64,7 +64,7 @@ public class App
                 handle.close();
             }
         }*/
-        
+
     	/*
     	System.out.println("-------- MySQL JDBC Connection Testing ------------");
 
@@ -95,7 +95,7 @@ public class App
     		System.out.println("Failed to make connection!");
     	}
     	*/
-    	
+
         Server server = new Server(8081);
 
         ServletContextHandler servletContextHandler = new ServletContextHandler(NO_SESSIONS);
@@ -121,6 +121,6 @@ public class App
         finally {
             server.destroy();
         }
-        
+
     }
 }

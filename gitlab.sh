@@ -2,7 +2,7 @@
 source config.sh
 
 # gitlab
-    #-e GITLAB_ROOT_PASSWORD=*HnYnKkn4444 \
+    #-e GITLAB_ROOT_PASSWORD=GitPass1 \
 docker run --detach \
     --hostname gitlab.example.com \
     --publish 443:443 --publish 30080:80 --publish 30022:22 \
