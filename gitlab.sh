@@ -19,6 +19,6 @@ docker run --detach \
     #gitlab/gitlab-ce:latest
     #gitlab/gitlab-ce:9.1.0-ce.0
 
-#cd going_headless
+cd going_headless
 
-#python configure_gitlab.py
+python configure_gitlab.py
