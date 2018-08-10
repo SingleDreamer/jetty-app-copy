@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 
 chrome_options = Options()
-chrome_options.add_argument("--headless")
+#chrome_options.add_argument("--headless")
 chrome_options.binary_location = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
 
 driver = webdriver.Chrome(executable_path=os.path.abspath("chromedriver"),   chrome_options=chrome_options)

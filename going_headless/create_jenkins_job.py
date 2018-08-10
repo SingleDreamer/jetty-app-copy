@@ -34,7 +34,7 @@ driver.get("http://192.168.99.100:8080/view/all/newJob")
 
 job_name = driver.find_element_by_name("name")
 job_name.clear()
-job_name.send_keys("jetty-gitlab-test-2") # might need to change
+job_name.send_keys("jetty-gitlab-test") # might need to change
 job_type = driver.find_element_by_xpath("//span[text()='Pipeline']").click()
 driver.find_element_by_id("ok-button").click()
 
@@ -42,7 +42,8 @@ time.sleep(2)
 
 gitlab_checkbox = driver.find_element_by_name("com-dabsquared-gitlabjenkins-GitLabPushTrigger")
 if not gitlab_checkbox.is_selected():
-    gitlab_checkbox.click()
+    driver.execute_script("arguments[0].click();", gitlab_checkbox)
+
 
 driver.find_element_by_xpath("//select[@class='setting-input dropdownList']/option[text()='Pipeline script from SCM']").click()
 time.sleep(1)
@@ -53,5 +54,8 @@ repo_url.clear()
 repo_url.send_keys("http://root@192.168.99.100:30080/root/jetty-app.git")
 
 driver.find_element_by_xpath("//select[@name='_.credentialsId']/option[@value='gitlab-root']").click()
+
+button = driver.find_element_by_xpath("//button[text()='Save']")
+button.click()
 
 driver.close()
